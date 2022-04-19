@@ -1,96 +1,66 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <>
-      <div>
-        {/* <!-- Footer --> */}
-        <footer
-          className="text-center text-white"
-          style={{ backgroundColor: "rgba(63, 81, 181, 1)" }}
-        >
-          {/* <!-- Grid container --> */}
-          <div className="container">
-            {/* <!-- Section: Links --> */}
-            <section className="mt-5">
-              {/* <!-- Grid row--> */}
-              <div className="row text-center d-flex justify-content-center pt-5">
-                {/* <!-- Grid column --> */}
-                <div className="col-md-2">
-                  <h6 className="text-uppercase font-weight-bold">
-                    <a href="#!" className="text-white">
-                      Docs
-                    </a>
-                  </h6>
+      <div className="p-4" style={{ backgroundColor: "black", color: "white" }}>
+        <div class="mt-4 container-2 ...">
+          <div class="flex flex-row ...">
+            <div>
+              <p style={{ textAlign: "justify" }}>
+                What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the
+                printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an
+                unknown printer took a galley of type and scrambled it to make a
+                type specimen book. It has survived not only five centuries, but
+                also the leap into electronic typesetting, remaining essentially
+                unchanged. It was popularised in the 1960s with the release of
+                Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum. Why do we use it? It is a
+                long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of letters, as opposed to using 'Content here,
+                content here', making it look like readable English. Many
+                desktop publishing packages and web page editors now use Lorem
+                Ipsum as their default model text, and a search for 'lorem
+                ipsum' will uncover many web sites still in their infancy.
+                Various versions have evolved over the years, sometimes by
+                accident, sometimes on purpose (injected humour and the like).
+              </p>
+            </div>
+            <div class="ml-16 mr-4 flex flex-row ...">
+              <div class="flex flex-col ...">
+                <div class="basis-1/4">
+                  <Link href="">
+                    <a>Home</a>
+                  </Link>
                 </div>
-                {/* <!-- Grid column --> */}
-
-                {/* <!-- Grid column --> */}
-                <div className="col-md-2">
-                  <h6 className="text-uppercase font-weight-bold">
-                    <a href="#!" className="text-white">
-                      Examples
-                    </a>
-                  </h6>
+                <div class="basis-1/4">
+                  <Link href="">
+                    <a class="w-full aspect-video ...">About</a>
+                  </Link>
                 </div>
-                {/* <!-- Grid column --> */}
-
-                {/* <!-- Grid column --> */}
-                <div className="col-md-2">
-                  <h6 className="text-uppercase font-weight-bold">
-                    <a href="#!" className="text-white">
-                      Blog
-                    </a>
-                  </h6>
+                <div class="basis-1/4">
+                  <Link href="">
+                    <a class="w-full aspect-video ...">Blog</a>
+                  </Link>
                 </div>
-                {/* <!-- Grid column --> */}
-              </div>
-              {/* <!-- Grid row--> */}
-            </section>
-            {/* <!-- Section: Links --> */}
-
-            <hr className="my-5" />
-
-            {/* <!-- Section: Text --> */}
-            <section className="mb-5">
-              <div className="row d-flex justify-content-center">
-                <div className="col-lg-8">
-                  <p>
-                    A Test Blog.
-                  </p>
+                <div class="basis-1/4">
+                  <Link href="">
+                    <a class="w-full aspect-video ...">Sign In</a>
+                  </Link>
                 </div>
               </div>
-            </section>
-            {/* <!-- Section: Text --> */}
-
-            {/* <!-- Section: Social --> */}
-            <section className="text-center mb-5">
-              <a href="" className="text-white me-4">
-                <i className="fa fa-google"></i>
-              </a>
-              <a href="" className="text-white me-4">
-                <i className="fa fa-instagram"></i>
-              </a>
-              <a href="" className="text-white me-4">
-                <i className="fa fa-linkedin"></i>
-              </a>
-              <a href="" className="text-white me-4">
-                <i className="fa fa-github"></i>
-              </a>
-            </section>
-            {/* <!-- Section: Social --> */}
+            </div>
           </div>
-          {/* <!-- Grid container --> */}
-
-          {/* <!-- Copyright --> */}
-          <div
-            className="text-center p-3"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-          >
-            © 2022 Copyright:
-            <a className="text-white">Test.com</a>
-          </div>
-          {/* <!-- Copyright --> */}
-        </footer>
-        {/* <!-- Footer --> */}
+        </div>
+        <hr />
+        <div className="mt-4">
+          <p className="text-center">&#169; Copyright 2022 | BlogTheme.com</p>
+        </div>
       </div>
     </>
   );
