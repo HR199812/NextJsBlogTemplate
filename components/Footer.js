@@ -8,17 +8,12 @@ const Footer = () => {
   return (
     <>
       <div
-        className={`${styles.footer} sm:mt-16 md:mt-8 mt-4 mx-auto shadow-md overflow-hidden md:max-w-full`}
+        className={`${styles.footer} sm:mt-16 md:mt-8 mt-4 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-full`}
         style={{ backgroundColor: "rgb(189, 195, 199)", color: "black" }}
       >
         <div className="p-2 w-full">
           <div
-            className=" w-full ml-16 mr-4 flex flex-row ..."
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              display: "flex",
-            }}
+            className="text-center w-full ml-16 mr-4 flex flex-row ..."
           >
             <div className="basis-1/4">
               <Link href="/">
@@ -42,13 +37,7 @@ const Footer = () => {
             </div>
           </div>
           <p
-            class="mt-4"
-            style={{
-              textAlign: "justify",
-              alignItems: "center",
-              justifyContent: "center",
-              display: "flex",
-            }}
+            class="mt-4 text-center"
           >
             A custom theme for blogs using fullstack MERN tech Stack.
           </p>
