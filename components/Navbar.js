@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className={styles.floatDivTwo}>
           <ul className="navbar-links">
             <LINK href="/signin">
-              <li>SignIn</li>
+              <li>Sign In</li>
             </LINK>
             <LINK href="/blog">
               <li>Blog</li>

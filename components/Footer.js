@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <>
       <div
-        className={`${styles.footer} mt-4 p-4`}
+        className={`${styles.footer} sm:mt-16 md:mt-8 mt-4 mx-auto shadow-md overflow-hidden md:max-w-full`}
         style={{ backgroundColor: "rgb(189, 195, 199)", color: "black" }}
       >
         <div className="p-2 w-full">
