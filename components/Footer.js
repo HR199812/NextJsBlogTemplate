@@ -60,7 +60,7 @@ const Footer = () => {
               display: "flex",
             }}
           >
-            <div class="flex flex-row ...">
+            <div class="flex flex-row ... mt-4">
               <div className="mr-4">
                 <FontAwesomeIcon icon={faCoffee} />
               </div>
