@@ -1,4 +1,9 @@
-const router = require("express").Router();
-const Article = require("../models/article.model");
+const express = require("express");
+const articleController = require("../controllers/articleController");
+// const server = express();
+const articleRouter = require("express").Router();
 
-module.exports = router;
+// articleRouter.post("/get", articleController.addAdmin);
+// articleRouter.get("/test", articleController.test);
+
+module.exports = articleRouter;

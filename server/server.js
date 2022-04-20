@@ -1,32 +1,40 @@
-const mongoose = require("mongoose");
-const cors = require("cors");
-const express = require("express");
-
 require("dotenv").config();
-
-const app = express();
-const port = process.env.PORT || 5000;
-app.use(cors());
-app.use(express.json());
-
-mongoose
-  .connect(config.get("mongoURI"), {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connection to Atlas is successful");
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
+const mongoose = require("mongoose");
 const userRouter = require("./routes/userRoute");
 const articleRouter = require("./routes/articleRoute");
+// const cors = require("cors");
+const express = require("express");
+const next = require("next");
 
-app.use("/User", userRouter);
-app.use("/Article", articleRouter);
 
-app.listen(port, () => {
-  console.log(`server is running on port ${port}`);
-});
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
+const handle = app.getRequestHandler();
+
+app
+  .prepare()
+  .then(() => {
+    const server = express();
+    server.use(cors());
+    server.use(express.json());
+    server.use(
+      express.urlencoded({
+        extended: true,
+      })
+    );
+
+    server.use("/User", userRouter);
+    server.use("/Article", articleRouter);
+
+    server.get("*", (req, res) => {
+      return handle(req, res);
+    });
+
+    server.listen(process.env.PORT, (err) => {
+      if (err) throw err;
+      console.log(`server ready on ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
