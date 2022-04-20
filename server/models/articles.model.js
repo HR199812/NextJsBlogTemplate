@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 
 const schema = mongoose.Schema;
+// ObjectId = Schema.ObjectId;
 
 const articlesSchema = new schema(
   {
     AuthorId: {
-      type: mongoose.Schema.Types.ObjectId, // here you set the author ID
+      // type: ObjectId, // here you set the author ID
+      type: mongoose.Schema.Types.ObjectId,
       // from the Author colection,
       // so you can reference it
       required: true,
