@@ -4,7 +4,7 @@ const server = express();
 const userRouter = express.Router();
 
 userRouter.post("/addUser", userController.addUser);
-userRouter.post("/getUsers", userController.getUsers);
-userRouter.get("/getUser", userController.test);
+userRouter.get("/getUsers", userController.getUsers);
+// userRouter.get("/getUser", userController.test);
 
 module.exports = userRouter;

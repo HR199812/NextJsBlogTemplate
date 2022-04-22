@@ -6,7 +6,7 @@ const userController = {
   //@route POST /user/add
   //@access Admin
   addUser: async (req, res) => {
-    const { username, password, usermail } = req.body;
+    const { username, userpassword, usermail } = req.body;
     const userCreate = await user.create({
       username,
       userpassword,
@@ -23,7 +23,10 @@ const userController = {
       throw new Error("Invalid user data");
     }
   },
-  getUsers: async (req, res) => {},
+  getUsers: async (req, res) => {
+    const allUsers = await user.find({});
+    res.status(200).json(allUsers);
+  },
   test: (req, res) => {
     res.send("All Ok");
   },
