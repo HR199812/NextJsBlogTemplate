@@ -5,20 +5,25 @@ const schema = mongoose.Schema;
 
 const articlesSchema = new schema(
   {
-    AuthorId: {
+    authorId: {
       // type: ObjectId, // here you set the author ID
       type: mongoose.Schema.Types.ObjectId,
       // from the Author colection,
       // so you can reference it
       required: true,
     },
-    Title: {
+    title: {
       type: String,
       required: true,
       trim: true,
     },
-    Body: {
+    body: {
       type: String,
+      required: true,
+      trim: true,
+    },
+    catergory: {
+      type: Stering,
       required: true,
       trim: true,
     },
