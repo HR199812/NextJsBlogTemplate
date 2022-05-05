@@ -2,9 +2,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 toast.configure();
 const signin = () => {
+
+  const router = useRouter();
+
   const [siginInfo, setSigninInfo] = useState({
     username: "",
     userpass: "",
@@ -39,7 +43,7 @@ const signin = () => {
         //   .catch((error) => {
         //     console.log(error);
         //   });
-
+        router.push("/articles");
         toast.success("Success", {
           position: toast.POSITION.BOTTOM_RIGHT,
         });
