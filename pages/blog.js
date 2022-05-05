@@ -15,7 +15,7 @@
 const blog = () => {
   return (
     <>
-      <div className="mt-5">My Blog contents</div>
+      <div className="mt-5 min-h-screen">My Blog contents</div>
     </>
   );
 };

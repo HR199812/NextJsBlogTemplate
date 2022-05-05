@@ -3,8 +3,8 @@ import LINK from "next/link";
 const about = () => {
   return (
     <>
-      <div className="mt-24">
-        <div className="mx-96 my-3 flex flex-col bg-white rounded-lg border shadow-md md:flex-row md:max-w-2/5 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+      <div className="mt-24 min-h-screen">
+        <div className="mx-96 my-20 flex flex-col bg-white rounded-lg border shadow-md md:flex-row md:max-w-2/5 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
           <img
             style={{ height: "58vh" }}
             className="object-cover w-full rounded-t-lg md:w-96 md:rounded-none md:rounded-l-lg"
