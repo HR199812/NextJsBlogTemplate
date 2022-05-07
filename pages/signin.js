@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import axios from 'axios';
 
 toast.configure();
 const signin = () => {
@@ -35,18 +36,24 @@ const signin = () => {
     } else {
       try {
         const user = { name: siginInfo.username, pass: siginInfo.userpass };
-        // axios
-        //   .post(`${serverString}admin/login`, user)
-        //   .then((res) => {
-        //     console.log(res);
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //   });
-        router.push("/articles");
-        toast.success("Success", {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        axios
+        // .post(`${process.env.SERVER_URI}User/getUser`, user)
+        .post(`http://localhost:3000/User/getUser`, user)
+          .then((res) => {
+            if(res.status == 200){
+              toast.error("Invalid User!", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+              });
+            } else{
+              router.push("/articles");
+              toast.success("Success", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+              });
+            } 
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } catch (error) {
         console.log(error);
       }
@@ -169,12 +176,12 @@ const signin = () => {
                     />
                     <label
                       className="form-check-label inline-block text-gray-800"
-                      for="exampleCheck2"
+                      htmlFor="exampleCheck2"
                     >
                       Remember me
                     </label>
                   </div>
-                  <Link href="forgotpassword">
+                  <Link href="/forgotpassword">
                     <a className="text-gray-800">Forgot password?</a>
                   </Link>
                 </div>

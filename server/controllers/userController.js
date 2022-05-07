@@ -23,9 +23,13 @@ const userController = {
       throw new Error("Invalid user data");
     }
   },
-  getUsers: async (req, res) => {
-    const allUsers = await user.find({});
-    res.status(200).json(allUsers);
+  getUser: async (req, res) => {
+    const allUsers = await user.find({username:req.body.name, userpassword:req.body.pass});
+    if(allUsers){
+      res.status(200).json(allUsers)
+    }else{
+      res.status(400).json({validUser:false});
+    }
   },
   test: (req, res) => {
     res.send("All Ok");
