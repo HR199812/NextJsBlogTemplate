@@ -6,11 +6,11 @@ const userController = {
   //@route POST /user/add
   //@access Admin
   addUser: async (req, res) => {
-    const { username, userpassword, usermail } = req.body;
+    // const { username, userpassword, usermail } = req.body;
     const userCreate = await user.create({
-      username,
-      userpassword,
-      usermail,
+      username:req.body.name,
+      userpassword:req.body.pass,
+      usermail:req.body.usermail,
     });
     if (userCreate) {
       res.status(201).json({

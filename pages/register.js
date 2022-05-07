@@ -2,9 +2,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter} from 'next/router';
+import axios from 'axios';
 
 toast.configure();
 const register = () => {
+  const router = useRouter();
+
   const [user, setUser] = useState({
     username: "",
     usermail: "",
@@ -27,6 +31,7 @@ const register = () => {
 
   const RegisterUser = (e) => {
     e.preventDefault();
+    console.log(user);
     if (
       user.username === "" ||
       user.usermail === "" ||
@@ -38,23 +43,30 @@ const register = () => {
       });
     } else {
       try {
-        const user = {
+        const addUser = {
           name: user.username,
           pass: user.userpass,
           usermail: user.usermail,
         };
-        // axios
-        //   .post(`${serverString}admin/login`, user)
-        //   .then((res) => {
-        //     console.log(res);
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //   });
+        axios
+          .post(`http://localhost:3000/User/addUser`, addUser)
+          .then((res) => {
+            if(res.status == 201){
+              router.push("/signin");
+              toast.success("Account Created Successfully!\nPlease Login.", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+              });
+            }else{
+              toast.success("Server Error Creating new User. Please Report!", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
 
-        toast.success("Success", {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        
       } catch (error) {
         console.log(error);
       }
