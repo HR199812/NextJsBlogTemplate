@@ -13,7 +13,7 @@ const about = () => {
           />
           <div className="flex flex-col justify-between p-4 leading-normal">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Tasks Manager
+              NextJs Blog Template for anyone to use.
             </h5>
             <h6 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               Developed by: Hritwik Agarwal
