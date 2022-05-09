@@ -1,4 +1,6 @@
-const articles = () => {
+import requireAuthentication from "./middleware/requireAuthentication";
+
+const articles = (props) => {
   return (
     <>
       <div className="container min-h-screen my-20 mx-auto px-4 md:px-12">
@@ -57,4 +59,13 @@ const articles = () => {
     </>
   );
 };
+export const getServerSideProps = requireAuthentication((context) => {
+  const { req } = context;
+  // console.log("req.session in getserverside props ******", req.session.user);
+  return {
+    props: {
+      id: req.session.user._id,
+    },
+  };
+});
 export default articles;
