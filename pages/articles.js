@@ -1,10 +1,11 @@
 import requireAuthentication from "./middleware/requireAuthentication";
-
+import UserNavbar from "../components/UserNavbar";
 const articles = (props) => {
+  const id = props.id;
   return (
     <>
       <div className="container min-h-screen my-20 mx-auto px-4 md:px-12">
-        {/* <TasksRibbon /> */}
+        <UserNavbar />
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {/* <!-- Column --> */}
           <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
@@ -61,7 +62,7 @@ const articles = (props) => {
 };
 export const getServerSideProps = requireAuthentication((context) => {
   const { req } = context;
-  // console.log("req.session in getserverside props ******", req.session.user);
+  console.log("req.session in getserverside props ******", req.session.user);
   return {
     props: {
       id: req.session.user._id,

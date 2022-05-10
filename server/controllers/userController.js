@@ -30,7 +30,7 @@ const userController = {
     });
     if (allUsers) {
       // Session Initiated
-      req.session.user = user;
+      req.session.user = allUsers;
       res.status(201).json({ validUser: true });
     } else {
       res.status(400).json({ validUser: false });
