@@ -1,8 +1,11 @@
 import Head from "next/head";
 import LINK from "next/link";
+import Navbar from "../components/Navbar";
+
 const about = () => {
   return (
     <>
+      <Navbar />
       <div className="mt-24 min-h-screen">
         <div className="mx-96 my-20 flex flex-col bg-white rounded-lg border shadow-md md:flex-row md:max-w-2/5 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
           <img
@@ -41,7 +44,8 @@ const about = () => {
             </LINK>
           </div>
         </div>
-      </div>    </>
+      </div>{" "}
+    </>
   );
 };
 

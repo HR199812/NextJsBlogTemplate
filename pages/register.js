@@ -2,8 +2,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter} from 'next/router';
-import axios from 'axios';
+import { useRouter } from "next/router";
+import axios from "axios";
+import Navbar from "../components/Navbar";
 
 toast.configure();
 const register = () => {
@@ -51,12 +52,12 @@ const register = () => {
         axios
           .post(`http://localhost:3000/User/addUser`, addUser)
           .then((res) => {
-            if(res.status == 201){
+            if (res.status == 201) {
               router.push("/signin");
               toast.success("Account Created Successfully!\nPlease Login.", {
                 position: toast.POSITION.BOTTOM_RIGHT,
               });
-            }else{
+            } else {
               toast.success("Server Error Creating new User. Please Report!", {
                 position: toast.POSITION.BOTTOM_RIGHT,
               });
@@ -65,8 +66,6 @@ const register = () => {
           .catch((error) => {
             console.log(error);
           });
-
-        
       } catch (error) {
         console.log(error);
       }
@@ -74,6 +73,7 @@ const register = () => {
   };
   return (
     <>
+      <Navbar />
       <section className="h-screen min-h-screen mb-5">
         <div className="px-6 h-full text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">

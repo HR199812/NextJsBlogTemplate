@@ -2,6 +2,7 @@ import LINK from "next/link";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Navbar from "../components/Navbar";
 
 const errorPage = () => {
   const router = useRouter();
@@ -18,6 +19,7 @@ const errorPage = () => {
 
   return (
     <>
+      <Navbar />
       <div className={styles.error}>
         <div className={styles.errorMessage}>
           <h1>404</h1>
