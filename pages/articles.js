@@ -1,11 +1,13 @@
 import requireAuthentication from "./middleware/requireAuthentication";
 import UserNavbar from "../components/UserNavbar";
+import ArticlesRibbon from "../components/ArticlesRibbon";
 const articles = (props) => {
   const id = props.id;
   return (
     <>
       <div className="container min-h-screen my-20 mx-auto px-4 md:px-12">
         <UserNavbar />
+        <ArticlesRibbon />
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {/* <!-- Column --> */}
           <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
