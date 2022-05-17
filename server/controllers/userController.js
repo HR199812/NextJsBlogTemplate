@@ -24,11 +24,10 @@ const userController = {
     }
   },
   getUser: async (req, res) => {
-    user.findOne(
-      {
-        username: req.body.name,
-        userpassword: req.body.pass,
-      },
+    user.findOne({
+      username: req.body.name,
+      userpassword: req.body.pass,
+    }, {createdAt:0, updatedAt:0},
       (err, user) => {
         if (user) {
           // Session Initiated
