@@ -24,17 +24,23 @@ const userController = {
     }
   },
   getUser: async (req, res) => {
-    const allUsers = await user.find({
-      username: req.body.name,
-      userpassword: req.body.pass,
-    });
-    if (allUsers) {
-      // Session Initiated
-      req.session.user = allUsers;
-      res.status(201).json({ validUser: true });
-    } else {
-      res.status(400).json({ validUser: false });
-    }
+    user.findOne(
+      {
+        username: req.body.name,
+        userpassword: req.body.pass,
+      },
+      (err, user) => {
+        if (user) {
+          // Session Initiated
+          req.session.user = user;
+          res.status(201).json({ validUser: true });
+        } else {
+          res.status(200).json({
+            validUser: false,
+          });
+        }
+      }
+    );
   },
   getSession: (req, res) => {
     res.send(req.session);

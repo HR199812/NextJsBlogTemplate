@@ -64,7 +64,7 @@ const articles = (props) => {
 };
 export const getServerSideProps = requireAuthentication((context) => {
   const { req } = context;
-  // console.log("req.session in getserverside props ******", req.session.user);
+  console.log("req.session in getserverside props ******", req.session);
   return {
     props: {
       id: req.session.user._id,

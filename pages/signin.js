@@ -3,12 +3,11 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
-import axios from 'axios';
-import Navbar from '../components/Navbar';
+import axios from "axios";
+import Navbar from "../components/Navbar";
 
 toast.configure();
 const signin = () => {
-
   const router = useRouter();
 
   const [siginInfo, setSigninInfo] = useState({
@@ -38,19 +37,20 @@ const signin = () => {
       try {
         const user = { name: siginInfo.username, pass: siginInfo.userpass };
         axios
-        // .post(`${process.env.SERVER_URI}User/getUser`, user)
-        .post(`http://localhost:3000/User/getUser`, user)
+          // .post(`${process.env.SERVER_URI}User/getUser`, user)
+          .post(`http://localhost:3000/User/getUser`, user)
           .then((res) => {
-            if(res.status == 200){
+            if (res.status == 200) {
               toast.error("Invalid User!", {
                 position: toast.POSITION.BOTTOM_RIGHT,
               });
-            } else{
+            } else {
+              console.log(res);
               router.push("/articles");
               toast.success("Success", {
                 position: toast.POSITION.BOTTOM_RIGHT,
               });
-            } 
+            }
           })
           .catch((error) => {
             console.log(error);
@@ -63,7 +63,7 @@ const signin = () => {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <section className="h-screen min-h-screen">
         <div className="px-6 h-full text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
