@@ -104,6 +104,7 @@
   width: 100%;
   z-index: 1;
   display: flex;
+  padding-right: 20%;
 }
 .navbar ul {
   display: block;
