@@ -7,6 +7,9 @@ const ArticlesRibbon = () => {
   function applyFilter(event) {
     event.preventDefault();
   }
+  function applSearchVal(event) {
+    event.preventDefault();
+  }
   return (
     <>
       <nav className="mt-16 mx-auto my-bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
