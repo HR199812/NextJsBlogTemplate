@@ -1,7 +1,10 @@
 import LINK from "next/link";
 import styles from "../styles/Home.module.css";
-
+import { useDispatch } from "react-redux";
+import { logoutLayout } from "../store/actions";
 const UserNavbar = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className={styles.navbar}>
@@ -12,7 +15,7 @@ const UserNavbar = () => {
         </div>
         <div className={styles.floatDivTwo}>
           <ul className="navbar-links">
-            <LINK href="/User/logout">
+            <LINK onClick={() => dispatch(logoutLayout())} href="/User/logout">
               <li>Sign-Out</li>
             </LINK>
             <LINK href="/blog">
