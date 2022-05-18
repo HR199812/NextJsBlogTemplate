@@ -4,9 +4,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Navbar from "../components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { loginLayout, logoutLayout } from "../store/actions/index";
+import { loginLayout } from "../store/actions/index";
 
 toast.configure();
 const signin = () => {
@@ -69,7 +68,6 @@ const signin = () => {
 
   return (
     <>
-      <Navbar />
       <section className="h-screen min-h-screen">
         <div className="px-6 h-full text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
