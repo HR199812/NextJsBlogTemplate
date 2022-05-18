@@ -6,7 +6,7 @@ const articles = (props) => {
   return (
     <>
       <div className="container min-h-screen my-20 mx-auto px-4 md:px-12">
-        <UserNavbar />
+        {/* <UserNavbar /> */}
         <ArticlesRibbon />
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {/* <!-- Column --> */}

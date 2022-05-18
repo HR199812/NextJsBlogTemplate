@@ -5,4 +5,4 @@ import { combineReducers } from "redux";
 const rootReducer = combineReducers({
   changeLayout,
 });
-export default rootReducer
+export default rootReducer;

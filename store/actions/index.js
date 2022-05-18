@@ -1,9 +1,9 @@
-const loginLayout = () => {
+export const loginLayout = () => {
     return{
         type: 'LOGGEDIN'
     }
 }
-const logoutLayout = () => {
+export const logoutLayout = () => {
     return{
         type: 'LOGGEDOUT'
     }

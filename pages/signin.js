@@ -5,9 +5,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { loginLayout, logoutLayout } from "../store/actions/index";
 
 toast.configure();
 const signin = () => {
+  const dispatch = useDispatch();
+  const isUserState = useSelector((state) => state.changeTheLayout);
+
   const router = useRouter();
 
   const [siginInfo, setSigninInfo] = useState({
@@ -46,6 +51,7 @@ const signin = () => {
               });
             } else {
               console.log(res);
+              dispatch(loginLayout());
               router.push("/articles");
               toast.success("Success", {
                 position: toast.POSITION.BOTTOM_RIGHT,
