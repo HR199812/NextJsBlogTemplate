@@ -4,11 +4,8 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { HYDRATE,createWrapper } from "next-redux-wrapper";
 import rootReducer from "./reducers/index";
 
-// initial states here
-const initalState = {};
 
 // middleware
-// const middleware = [thunk];
 const bindMiddleware = (middleware) => {
     if(process.env.NODE_ENV != "production"){
         const {composeWithDevTools} = require('redux-devtools-extension');
@@ -37,14 +34,5 @@ const initStore = () =>{
     );
 }
 
-// assigning store to next wrapper
-// const makeStore = () => store;
 
 export const wrapper = createWrapper(initStore);
-
-// import {createStore} from 'redux';
-// import rootReducer from './reducers/index';
-
-// const store = createStore(rootReducer);
-
-// export default store;
