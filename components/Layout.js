@@ -5,7 +5,6 @@ import UserNavbar from "./UserNavbar";
 
 function Layout({ children }) {
   const changeLayout = useSelector((state) => state.changeLayout);
-  console.log(changeLayout);
   return (
     <>
       {changeLayout.isUser ? <UserNavbar /> : <Navbar />}
