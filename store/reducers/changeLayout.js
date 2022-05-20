@@ -8,7 +8,7 @@ const changeTheLayout = (state = initialState, action) => {
     case LOGGED_OUT:
       return { isUser: state.isUser };
     default:
-      return state;
+      return state.isUser;
   }
 };
 export default changeTheLayout;

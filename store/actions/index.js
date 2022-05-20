@@ -9,8 +9,9 @@ export const logoutLayout = () => {
     type: LOGGED_OUT,
   };
 };
-export const searchValue = () => {
+export const searchValue = (val) => {
   return {
     type: SEARCH_VALUE,
+    payload: val,
   };
 };

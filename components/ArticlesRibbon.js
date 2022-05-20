@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { searchValue } from "../store/actions/index";
 
 const ArticlesRibbon = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const state = useSelector((state) => state.searchValue);
+  const dispatch = useDispatch();
+
+  const [searchedText, setSearchedText] = useState("");
   const [showCreateArticleModal, setShowCreateArticleModal] = useState(false);
 
   function applyFilter(event) {
@@ -9,6 +14,8 @@ const ArticlesRibbon = () => {
   }
   function applSearchVal(event) {
     event.preventDefault();
+    console.log(searchedText);
+    dispatch(searchValue(searchedText));
   }
   return (
     <>
@@ -32,8 +39,8 @@ const ArticlesRibbon = () => {
                     placeholder="Search"
                     aria-label="Search"
                     aria-describedby="button-addon2"
-                    value={searchValue}
-                    onChange={(event) => setSearchValue(event.target.value)}
+                    value={searchedText}
+                    onChange={(event) => setSearchedText(event.target.value)}
                   />
                   <button
                     className="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
