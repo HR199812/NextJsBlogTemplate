@@ -1,11 +1,25 @@
 import requireAuthentication from "./middleware/requireAuthentication";
 import ArticlesRibbon from "../components/ArticlesRibbon";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 const articles = (props) => {
   const id = props.id;
+
+  const state = useSelector((state) => state.searchValue);
+
+  const [searchedTasks, setSearchedTasks] = useState(false);
+
+  function fetchSearchedTasksOnly() {
+    console.log(state);
+    setSearchedTasks(false);
+  }
+  useEffect(() => {
+    fetchSearchedTasksOnly();
+  }, [searchedTasks]);
   return (
     <>
       <div className="container min-h-screen my-20 mx-auto px-4 md:px-12">
-        <ArticlesRibbon />
+        <ArticlesRibbon passSearchState={setSearchedTasks} />
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {/* <!-- Column --> */}
           <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">

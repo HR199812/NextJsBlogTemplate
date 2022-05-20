@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { searchValue } from "../store/actions/index";
 
-const ArticlesRibbon = () => {
+const ArticlesRibbon = (props) => {
   const state = useSelector((state) => state.searchValue);
   const dispatch = useDispatch();
 
@@ -14,8 +14,12 @@ const ArticlesRibbon = () => {
   }
   function applSearchVal(event) {
     event.preventDefault();
-    console.log(searchedText);
-    dispatch(searchValue(searchedText));
+    if (searchedText != " ") {
+      dispatch(searchValue(searchedText));
+      props.passSearchState(true);
+    } else {
+      props.passSearchState(false);
+    }
   }
   return (
     <>
